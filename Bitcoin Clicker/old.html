@@ -1,0 +1,75 @@
+var game = {
+    bitcoins: 0,
+    totalBitcoins: 0,
+    totalClicks: 0,
+    MineValue: 1,
+    version: 0.000,
+
+    addToBitcoins: function(amount) {
+        this.bitcoins += amount;
+        this.totalBitcoins += amount;
+        display.updateBitcoins();
+    },
+
+    getBitcoinsPerSec: function() {
+        var bitcoinsPerSec = 0;
+        for (i = 0; 1 < building.name.length; i++) {
+            bitcoinsPerSec += building.income[i] * building.count[i];
+        }
+        return bitcoinsPerSec;
+    }
+};
+
+var building = {
+    name: [
+        "Noob GPU",
+        "Starter GPU",
+        "Pro GPU"
+    ],
+    image: [ 
+        "GPU.PNG",
+        "GPU2.JPG",
+        "GPU3.JPG"
+    ],
+      count: [0, 0, 0],
+    income: [
+        1,
+        15,
+        155,
+    ],
+    cost: [
+        15,
+        100,
+        1000
+    ],
+
+    purchase: function(index) {
+        if (game.bitcoins >= this.cost[index]) {
+            game.bitcoins -= this.cost[index];
+            this.count[index]++;
+            this.cost[index] = Math.ceil(this.cost[index] * 1.10);
+            display.updateBitcoins();
+            display.updateShop();
+        }
+    }
+};
+
+var display = {
+    updateBitcoins: function() {
+        document.getElementById("bitcoins").innerHTML = game.bitcoins;
+        document.getElementById("bitcoinsPerSec").innerHTML = game.bitcoinsPerSec();
+        document.title = game.bitcoins + " Bitcoin - Bitcoin Miner";
+    },
+
+    updateShop: function() {
+        document.getElementById("shopContainer").innerHTML = "";
+        for (i = 0; i < building.name.length; i++) {
+            document.getElementById("shopContainer").innerHTML += '<table class="shopButton unselectable" onclick="building.purchase('+i+')"><tr><td id="image"><img src="Images/'+building.image[i]+'"></td><td id="nameAndCost"><p>'+building.name[i]+'</p><p><span>'+building.cost[i]+'</span> Bitcoin</p></td><td id="amount"><span>'+building.count[i]+'</span></td></tr></table>';
+        }
+    }
+};
+
+window.onload = function() {
+    display.updateBitcoins();
+    display.updateShop();
+};
