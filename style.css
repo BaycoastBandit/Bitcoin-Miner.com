@@ -1,0 +1,79 @@
+.sectionLeft {
+    float: left;
+    width: 80%;
+}
+.sectionRight {
+    float: right;
+    width: 20%;
+}
+.bitcoinsContainer {
+    background-color: rgb(235, 212, 9);
+    width: 50%;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Chivo Mono', monospace;
+}
+.GPUcontainer img {
+    position: relative;
+    transition: all .2s ease-in-out;
+}
+
+.GPUcontainer img:hover { transform: scale(1.05); }
+.GPUcontainer img:active { transform: scale(1);}
+
+.shopButton {
+    background-color: #b5b5b5;
+    transition: all .2s ease-in-out;
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+
+}
+
+.shopButton:hover {
+    background-color: #c7c7c7;
+    transition: all .2s ease-in-out;
+}
+
+.shopButton #image {
+    width: 25%;
+}
+
+.shopButton img {
+    height: 64px;
+    width: 64px;
+}
+
+.shopButton #nameAndCost p {
+    margin: 0px;
+    width: 60%;
+    font-family: 'Chivo Mono', monospace;
+    font-size: 13px;
+}
+
+.shopButton #nameAndCost p:first-of-type {
+    font-size: 18px;
+    font-family: 'Chivo Mono', monospace;
+}
+
+.shopButton #amount {
+    font-size: 30px;
+    color: #595959;
+    font-family: 'Chivo Mono', monospace;
+    width: 15%;
+}
+
+.sectionFooter {
+    margin-top: 20%;
+}
+
+.uselectable {
+    user-select: none;
+}
+
+#upgradeContainer img {
+    height: 64px;
+    width: 64px;
+}
